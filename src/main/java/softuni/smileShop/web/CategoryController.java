@@ -73,9 +73,9 @@ public class CategoryController {
                 .map(c -> this.modelMapper.map(c, CategoryViewModel.class))
                 .collect(Collectors.toList());
 
-      //  modelAndView.addObject("categories", categories);
+    
         model.addAttribute("categories", categories);
-        //много внимаваме как сче го кръстили в html иначе няма да ни го мапни
+      
 
 
         return "category/category-all";
