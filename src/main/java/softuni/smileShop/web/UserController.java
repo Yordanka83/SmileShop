@@ -68,8 +68,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerAndLoginUser(@Valid UserRegisterBindingModel userRegisterBindingModel,
                                        BindingResult bindingResult, RedirectAttributes redirectAttributes) {
-        //@Valid валидира валидации който ние сме сложили, а байнингрезулта показва грешките който ние сме задали,
-        // редиректатррибют казва да редиректне къде да ни върне и
+      
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
