@@ -9,6 +9,10 @@ public class UserRegisterBindingModel {
     public UserRegisterBindingModel() {
     }
 
+    
+    
+    @NotBlank(message = "Username cannot be empty str")
+    @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
     public String getUsername() {
         return username;
     }
@@ -17,6 +21,8 @@ public class UserRegisterBindingModel {
         this.username = username;
     }
 
+    @NotBlank(message = "password cannot empty str")
+    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20")
     public String getPassword() {
         return password;
     }
@@ -25,6 +31,8 @@ public class UserRegisterBindingModel {
         this.password = password;
     }
 
+    @NotBlank(message = "password cannot empty str")
+    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20")
     public String getConfirmPassword() {
         return confirmPassword;
     }
@@ -33,6 +41,7 @@ public class UserRegisterBindingModel {
         this.confirmPassword = confirmPassword;
     }
 
+    @Email(message = "Email must be valid")
     public String getEmail() {
         return email;
     }
