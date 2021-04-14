@@ -21,18 +21,4 @@ public class HomeController {
 
     }
 
-
-//    @GetMapping("/admin")
-//    public ModelAndView admin(@AuthenticationPrincipal UserDetails principal) {
-//        ModelAndView mav= new ModelAndView("admin");
-//        mav.addObject("user", principal);
-//        return mav;
-//    }
-//
-//    @GetMapping("/user")
-//    public ModelAndView user(@AuthenticationPrincipal UserDetails principal) {
-//        ModelAndView mav= new ModelAndView("user");
-//        mav.addObject("user", principal);
-//        return mav;
-//    }
 }
