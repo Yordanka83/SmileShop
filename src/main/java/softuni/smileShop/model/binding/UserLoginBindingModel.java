@@ -7,6 +7,8 @@ public class UserLoginBindingModel {
     public UserLoginBindingModel() {
     }
 
+    @NotBlank(message = "Username cannot be empty str")
+    @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
     public String getUsername() {
         return username;
     }
@@ -16,6 +18,8 @@ public class UserLoginBindingModel {
         return this;
     }
 
+    @NotBlank(message = "password cannot empty str")
+    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20")
     public String getPassword() {
         return password;
     }
