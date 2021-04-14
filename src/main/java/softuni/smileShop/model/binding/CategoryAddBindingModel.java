@@ -6,6 +6,8 @@ public class CategoryAddBindingModel {
     public CategoryAddBindingModel() {
     }
 
+    @NotBlank(message = "Name cannot be empty str")
+    @Size(min = 3, max = 20, message = "Name must be between 3 and 20 characters")
     public String getName() {
         return name;
     }
