@@ -1,5 +1,11 @@
 package softuni.smileShop.model.binding;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class OrderBindingModel {
 
     private String productId;
@@ -20,6 +26,8 @@ public class OrderBindingModel {
         this.productId = productId;
     }
 
+    @NotBlank(message = "Cannot be emty")
+    @Size(min = 3, max = 20, message = "Name must be between 3 and 20")
     public String getNameCustomer() {
         return nameCustomer;
     }
@@ -28,6 +36,8 @@ public class OrderBindingModel {
         this.nameCustomer = nameCustomer;
     }
 
+    @NotBlank(message = "Cannot be emty")
+    @Size(min = 3, max = 20, message = "Name must be between 3 and 20")
     public String getNameProduct() {
         return nameProduct;
     }
@@ -36,6 +46,7 @@ public class OrderBindingModel {
         this.nameProduct = nameProduct;
     }
 
+    @Size(min = 6, message = "Description must be min 6 characters")
     public String getDescription() {
         return description;
     }
@@ -44,6 +55,7 @@ public class OrderBindingModel {
         this.description = description;
     }
 
+    @DecimalMin(value = "0", message = "Price must be positive")
     public String getPrice() {
         return price;
     }
@@ -51,7 +63,8 @@ public class OrderBindingModel {
     public void setPrice(String price) {
         this.price = price;
     }
-
+   
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public String getDate() {
         return date;
     }
@@ -60,3 +73,4 @@ public class OrderBindingModel {
         this.date = date;
     }
 }
+
