@@ -2,6 +2,7 @@ package softuni.smileShop.model.binding;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class ProductAddBindingModel {
     public ProductAddBindingModel() {
     }
 
+    @NotBlank(message = "Cannot be emty")
+    @Size(min = 3, max = 20, message = "Name must be between 3 and 20")
     public String getName() {
         return name;
     }
@@ -24,6 +27,7 @@ public class ProductAddBindingModel {
         this.name = name;
     }
 
+    @NotNull(message = "Not empty file")
     public MultipartFile getImage() {
         return image;
     }
@@ -32,6 +36,7 @@ public class ProductAddBindingModel {
         this.image = image;
     }
 
+    @DecimalMin(value = "0", message = "Price must be positive")
     public BigDecimal getPrice() {
         return price;
     }
@@ -40,6 +45,7 @@ public class ProductAddBindingModel {
         this.price = price;
     }
 
+    @Size(min = 6, message = "Description must be min 6 characters")
     public String getDescription() {
         return description;
     }
@@ -48,6 +54,8 @@ public class ProductAddBindingModel {
         this.description = description;
     }
 
+
+    @NotEmpty(message = "Input list cannot be empty.")
     public List<String> getCategories() {
         return categories;
     }
