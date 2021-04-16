@@ -137,4 +137,14 @@ public class ProductController {
         return "redirect:/products/all";
 
     }
+       @GetMapping("/details/{id}")
+    public String detailsProduct(@PathVariable String id, Model model) {
+
+        ProductDetailsViewModel productDetailsViewModel = this.modelMapper
+                .map(this.productService.findProductById(id), ProductDetailsViewModel.class);
+
+        model.addAttribute("product", productDetailsViewModel);
+
+        return "redirect:product/product-details";
+    }
 }
